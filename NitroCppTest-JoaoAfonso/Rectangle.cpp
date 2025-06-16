@@ -27,7 +27,15 @@ std::vector<Rectangle> Rectangle::loadFromFile(const std::string& filename)
         throw std::runtime_error("Could not open file: " + filename);
     }
 
-    json data = json::parse(file_stream);
+    json data;
+    try 
+    {
+        data = json::parse(file_stream);
+    } 
+    catch (const json::parse_error& e) 
+    {
+        throw std::runtime_error("Failed to parse JSON: " + std::string(e.what()));
+    }
 
     if (!data.contains("rects") || !data["rects"].is_array()) 
     {

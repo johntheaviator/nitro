@@ -23,14 +23,21 @@ int main(int argc, char* argv[])
         finder.printResults();
     } 
     
+    catch (const std::runtime_error& e) 
+    {
+        std::cerr << "Runtime error: " << e.what() << "\n";
+        return 1;
+    } 
     catch (const std::exception& e) 
     {
-        std::cerr << "Error: " << e.what() << "\n";
+        std::cerr << "Unexpected error: " << e.what() << "\n";
+        return 1;
+    } 
+    catch (...) 
+    {
+        std::cerr << "An unknown error occurred.\n";
         return 1;
     }
 
     return 0; 
 }
-
-
-/* g++ -std=c++17 -o intersection_finder main.cpp Rectangle.cpp IntersectionFinder.cpp */
