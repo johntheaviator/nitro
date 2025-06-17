@@ -46,14 +46,13 @@ std::vector<Rectangle> Rectangle::loadFromFile(const std::string& filename)
     {
         if (id_counter > MAX_RECTANGLES) 
         {
-            std::cout << "Info: JSON file contains more than "<< MAX_RECTANGLES << " rectangles. Processing the first" << MAX_RECTANGLES << ".\n";
+            std::cout << "Info: JSON file contains more than "<< MAX_RECTANGLES << " rectangles. Processing the first " << MAX_RECTANGLES << ".\n";
             break;
         }
 
         /* Check that all required keys exist */
-        if (!(item.contains("x") && item.contains("y") &&
-              item.contains("w") && item.contains("h"))) 
-              {
+        if (!(item.contains("x") && item.contains("y") && item.contains("w") && item.contains("h"))) 
+        {
             throw std::runtime_error("Each rectangle must contain exactly 'x', 'y', 'w', and 'h' fields.");
         }
 
