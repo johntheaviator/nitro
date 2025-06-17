@@ -65,6 +65,32 @@ The program will output:
 
 ---
 
+## 🧪 Running the Tests
+
+To compile and run the unit tests:
+
+1. Navigate to the `tests/` directory:
+
+   ```bash
+   cd tests
+   ```
+
+2. Compile the test suite:
+
+   ```bash
+   cmake -S . -B build && cmake --build build
+   ```
+
+3. Run the tests using CTest:
+
+   ```bash
+   ctest --test-dir build
+   ```
+
+This will build and execute all defined test cases, providing output on pass/fail status.
+
+---
+
 ## 🧩 Notes
 
 - Only the **first 10 rectangles** in the JSON file are processed
